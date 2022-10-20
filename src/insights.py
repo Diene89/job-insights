@@ -5,22 +5,25 @@ def get_unique_job_types(path):
     data = read(path)
     uniques_types_of_jobs = set()
     for job in data:
-        if job['job_type'] != '':
-            uniques_types_of_jobs.add(job['job_type'])
+        if job["job_type"] != "":
+            uniques_types_of_jobs.add(job["job_type"])
     return uniques_types_of_jobs
 
 
 def filter_by_job_type(jobs, job_type):
-    
-    return []
+    filtered_job_type = []
+    for job in jobs:
+        if job["job_type"] == job_type:
+            filtered_job_type.append(job)
+    return filtered_job_type
 
 
 def get_unique_industries(path):
     data = read(path)
     unique_industries = set()
     for industry in data:
-        if industry['industry'] != '':
-            unique_industries.add(industry['industry'])
+        if industry["industry"] != "":
+            unique_industries.add(industry["industry"])
     return unique_industries
 
 
@@ -46,11 +49,11 @@ def get_max_salary(path):
     data = read(path)
     max_salaries = set()
     for salary in data:
-        if salary['max_salary'] != '':
+        if salary["max_salary"] != "":
             try:
-                max_salaries.add(int(salary['max_salary']))
+                max_salaries.add(int(salary["max_salary"]))
             except ValueError:
-                print('Valor não encontrado')
+                print("Valor não encontrado")
     return max(max_salaries)
 
 
@@ -58,11 +61,11 @@ def get_min_salary(path):
     data = read(path)
     min_salaries = set()
     for salary in data:
-        if salary['min_salary'] != '':
+        if salary["min_salary"] != "":
             try:
-                min_salaries.add(int(salary['min_salary']))
+                min_salaries.add(int(salary["min_salary"]))
             except ValueError:
-                print('Valor não encontrado')
+                print("Valor não encontrado")
     return min(min_salaries)
 
 
