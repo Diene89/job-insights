@@ -62,13 +62,15 @@ def get_min_salary(path):
 def matches_salary_range(job, salary):
     if type(salary) != int:
         raise ValueError("This is not a numeric value")
-    elif ('min_salary' or 'max_salary') not in job:
+    elif ("min_salary" or "max_salary") not in job:
         raise ValueError("There is no salary in this range")
-    elif (type(job["min_salary"]) or type(job["max_salary"]) != int):
+    elif type(job["min_salary"]) or type(job["max_salary"]) != int:
         raise ValueError("This is not a numeric value")
-    elif (job['min_salary'] > job['max_salary']):
-        raise ValueError("The minimum value cannot be greater than the maximum")
-    return job['min_salary'] <= salary <= job['max_salary']
+    elif job["min_salary"] > job["max_salary"]:
+        raise ValueError(
+            "The minimum value cannot be greater than the maximum"
+        )
+    return job["min_salary"] <= salary <= job["max_salary"]
 
 
 def filter_by_salary_range(jobs, salary):
