@@ -64,7 +64,7 @@ def matches_salary_range(job, salary):
         raise ValueError("This is not a numeric value")
     elif ("min_salary" or "max_salary") not in job:
         raise ValueError("There is no salary in this range")
-    elif type(job["min_salary"]) or type(job["max_salary"]) != int:
+    elif (type(job["min_salary"]) or type(job["max_salary"])) != int:
         raise ValueError("This is not a numeric value")
     elif job["min_salary"] > job["max_salary"]:
         raise ValueError(
